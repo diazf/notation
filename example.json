@@ -1,0 +1,45 @@
+{
+    "preamble":"Capital letters are used for random variables, whereas lower case letters are used for the values of random variables and for scalar functions. Quantities that are required to be real-valued vectors are written in bold and in lower case (even if random variables). Matrices are bold capitals.",
+    "notation":[
+        {
+            "name":"rlvec",
+            "definition":"\\mathbf{#1}",
+            "describe":false,
+            "args":1
+        },
+        {
+            "name":"rlmat",
+            "definition":"\\mathbf{#1}",
+            "describe":false,
+            "args":1
+        },
+        {
+            "name":"doteq",
+            "description":"equality relationship that is true by definition",
+            "define":false
+        },
+        {
+            "name":"approx",
+            "description":"approximately equal",
+            "define":false
+        },
+        {
+            "name":"propto",
+            "description":"proportional to",
+            "define":false
+        },
+        {
+            "name":"prob",
+            "tabname":"\\prob{X=x}",
+            "definition":"\\mathrm{Pr}\\{#1\\}",
+            "description":"probability that a random variable $X$ takes on the value $x$",
+            "args":1
+        },
+        {
+            "name":"sample",
+            "tabname":"X\\sample p",
+            "definition":"\\sim",
+            "description":"random variable $X$ selected from distribution $p(x)\\doteq\\prob{X=x}"
+        }
+    ]
+}
