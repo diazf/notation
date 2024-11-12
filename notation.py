@@ -45,7 +45,12 @@ def main():
                 lastempty = False
         else:
             if len(notation) > 0 and ("define" not in notation or notation["define"] is True):
-                print("\\newcommand{\\%s}[%d]{%s}"%(notation["name"],notation["args"] if "args" in notation else 0,notation["definition"]))
+                if "operator" in notation and notation["operator"] is True:
+                    print("\\DeclareMathOperator{\\%s}{%s}"%(notation["name"],notation["definition"]))
+                if "stoperator" in notation and notation["stoperator"] is True:
+                    print("\\DeclareMathOperator*{\\%s}{%s}"%(notation["name"],notation["definition"]))
+                else:
+                    print("\\newcommand{\\%s}[%d]{%s}"%(notation["name"],notation["args"] if "args" in notation else 0,notation["definition"]))
 
     if args.table:
         print("\\end{tabular}")
