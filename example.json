@@ -3,7 +3,7 @@
     "notation":[
         {
             "name":"argminFn",
-            "stoperator":true,
+            "operator*":true,
             "definition":"argmin",
             "describe":false
         },

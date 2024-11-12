@@ -47,7 +47,7 @@ def main():
             if len(notation) > 0 and ("define" not in notation or notation["define"] is True):
                 if "operator" in notation and notation["operator"] is True:
                     print("\\DeclareMathOperator{\\%s}{%s}"%(notation["name"],notation["definition"]))
-                if "stoperator" in notation and notation["stoperator"] is True:
+                if "operator*" in notation and notation["operator*"] is True:
                     print("\\DeclareMathOperator*{\\%s}{%s}"%(notation["name"],notation["definition"]))
                 else:
                     print("\\newcommand{\\%s}[%d]{%s}"%(notation["name"],notation["args"] if "args" in notation else 0,notation["definition"]))
