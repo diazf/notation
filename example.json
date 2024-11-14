@@ -1,19 +1,11 @@
 {
     "caption":"Capital letters are used for random variables, whereas lower case letters are used for the values of random variables and for scalar functions. Quantities that are required to be real-valued vectors are written in bold and in lower case (even if random variables). Matrices are bold capitals.",
+    "includes":[
+        "include.json"
+    ],
     "notation":[
         {
-            "name":"argminFn",
-            "operator*":true,
-            "definition":"argmin",
-            "describe":false
-        },
-        {
-            "name":"argmin",
-            "tabname":"\\argmin{x\\in X}{x}",
-            "definition":"\\argminFn_{#1}#2",
-            "description":"minimum value of $x$ over all $X$",
-            "describe":false,
-            "args":2
+            "name":"argmin"
         },
         {
             "name":"rlvec",
