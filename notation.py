@@ -29,7 +29,8 @@ def print_table(notations,caption,includes):
     included_notation={}
     for include in includes:
         for notation in include:
-            included_notation[notation["name"]] = notation
+            if len(notation) > 0:
+                included_notation[notation["name"]] = notation
     print("\\begin{table}")
     if caption is not None:
         print("\\caption{%s}"%caption)
@@ -37,8 +38,8 @@ def print_table(notations,caption,includes):
     lastempty=True
     for notation in notations:
         notation_ = notation
-        name = notation_["name"]
-        if name in included_notation:
+        name = notation_["name"] if "name" in notation_ else None
+        if (name is not None) and (name in included_notation):
             if "definition" in notation_:
                 print(f"ERROR: symbol {name} redefined")
                 sys.exit()
@@ -46,8 +47,9 @@ def print_table(notations,caption,includes):
                 if k not in notation_ and k in included_notation[name]:
                     notation_[k] = included_notation[name][k] 
             notation_["describe"] = True
-        if len(notation_) == 0 and lastempty is False:
-            print("\\\\")
+        if len(notation_) == 0:
+            if lastempty is False:
+                print("\\\\")
             lastempty = True
         elif ("describe" not in notation_) or (notation_["describe"]):
             name = notation_["tabname"] if "tabname" in notation_ else f"\\{name}"
@@ -63,7 +65,7 @@ def print_macros_(notations):
         if len(notation) > 0 and ("define" not in notation or notation["define"] is True):
             if "operator" in notation and notation["operator"] is True:
                 print("\\DeclareMathOperator{\\%s}{%s}"%(notation["name"],notation["definition"]))
-            if "operator*" in notation and notation["operator*"] is True:
+            elif "operator*" in notation and notation["operator*"] is True:
                 print("\\DeclareMathOperator*{\\%s}{%s}"%(notation["name"],notation["definition"]))
             else:
                 print("\\newcommand{\\%s}[%d]{%s}"%(notation["name"],notation["args"] if "args" in notation else 0,notation["definition"]))
