@@ -1,0 +1,20 @@
+{
+    "caption":"",
+    "include":[],
+    "notation":[
+        {
+            "name":"argminFn",
+            "operator*":true,
+            "definition":"argmin",
+            "describe":false
+        },
+        {
+            "name":"argmin",
+            "tabname":"\\argmin{x\\in X}{x}",
+            "definition":"\\argminFn_{#1}#2",
+            "description":"minimum value of $x$ over all $X$",
+            "describe":false,
+            "args":2
+        }
+    ]
+}

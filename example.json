@@ -7,6 +7,7 @@
         {
             "name":"argmin"
         },
+        {},        
         {
             "name":"rlvec",
             "definition":"\\mathbf{#1}",
@@ -34,6 +35,7 @@
             "description":"proportional to",
             "define":false
         },
+        {},
         {
             "name":"prob",
             "tabname":"\\prob{X=x}",
